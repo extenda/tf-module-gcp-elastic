@@ -44,6 +44,12 @@ locals {
     elasticsearch_https_endpoint = ec_deployment.deployment.elasticsearch[0].https_endpoint
     elasticsearch_password       = ec_deployment.deployment.elasticsearch_password
     kibana_https_endpoint        = ec_deployment.deployment.kibana[0].https_endpoint
+
+    elastic_server_connection_string = replace(
+      ec_deployment.deployment.elasticsearch[0].https_endpoint,
+      "https://",
+      "https://${ec_deployment.deployment.elasticsearch_username}:${ec_deployment.deployment.elasticsearch_password}@"
+    )
   }
 }
 
