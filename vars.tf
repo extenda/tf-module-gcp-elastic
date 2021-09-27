@@ -81,3 +81,9 @@ variable kibana_zone_count {
   type        = number
   default     = 1
 }
+
+variable enable_apm {
+  description = "Deploy APM to the cluster or not"
+  type        = bool
+  default     = false
+}

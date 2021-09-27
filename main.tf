@@ -36,6 +36,11 @@ resource "ec_deployment" "deployment" {
       zone_count                = var.kibana_zone_count
     }
   }
+
+  dynamic apm {
+    for_each = var.enable_apm ? [0] : []
+    content {}
+  }
 }
 
 locals {
