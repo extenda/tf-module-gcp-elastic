@@ -10,8 +10,8 @@ output elasticsearch_username {
 
 output elasticsearch_password {
   description = "The auto-generated Elasticsearch password"
-  value     = ec_deployment.deployment.elasticsearch_password
-  sensitive = true
+  value       = ec_deployment.deployment.elasticsearch_password
+  sensitive   = true
 }
 
 output elasticsearch_cloud_id {

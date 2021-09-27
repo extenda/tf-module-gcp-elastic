@@ -19,9 +19,9 @@ resource "ec_deployment" "deployment" {
 
   elasticsearch {
     topology {
-      instance_configuration_id = var.elastic_insatnce_config_id
-      size                      = var.elastic_size
-      zone_count                = var.elastic_zone_count
+      id         = "hot_content"
+      size       = var.elastic_size
+      zone_count = var.elastic_zone_count
     }
 
     config {
@@ -35,7 +35,7 @@ resource "ec_deployment" "deployment" {
       size                      = var.kibana_size
       zone_count                = var.kibana_zone_count
     }
-  } 
+  }
 }
 
 locals {
