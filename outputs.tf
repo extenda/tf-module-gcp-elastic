@@ -27,5 +27,10 @@ output deployment_id {
 
 output kibana_https_endpoint {
   description = "The Kibana resource HTTPs endpoint"
-  value       = ec_deployment.deployment.kibana[0].https_endpoint
+  value       = var.enable_kibana ? ec_deployment.deployment.kibana[0].https_endpoint : null
+}
+
+output apm_https_endpoint {
+  description = "APM resource HTTPs endpoint"
+  value       = var.enable_apm ? ec_deployment.deployment.apm[0].https_endpoint : null
 }
