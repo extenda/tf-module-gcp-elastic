@@ -34,3 +34,9 @@ output apm_https_endpoint {
   description = "APM resource HTTPs endpoint"
   value       = var.enable_apm ? ec_deployment.deployment.apm[0].https_endpoint : null
 }
+
+output apm_secret_token {
+  description = "Generated APM secret_token"
+  value       = var.enable_apm ? ec_deployment.deployment.apm_secret_token : null
+  sensitive   = true
+}
