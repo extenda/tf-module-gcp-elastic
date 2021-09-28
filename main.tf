@@ -11,11 +11,14 @@ provider "ec" {
 }
 
 resource "ec_deployment" "deployment" {
-  name = var.name
+  name  = var.name
+  alias = var.alias
+  tags  = var.tags
 
   region                 = var.region
   version                = var.elastic_version
-  deployment_template_id = var.deployment_id
+  deployment_template_id = var.deployment_template_id
+
 
   elasticsearch {
     autoscale = var.autoscale
@@ -31,11 +34,15 @@ resource "ec_deployment" "deployment" {
         node_type_master = lookup(topology.value, "node_type_master", null)
         node_type_ingest = lookup(topology.value, "node_type_ingest", null)
         node_type_ml     = lookup(topology.value, "node_type_ml", null)
-        autoscaling {
-          min_size          = lookup(lookup(topology.value, "autoscaling", {}), "min_size", null)
-          max_size          = lookup(lookup(topology.value, "autoscaling", {}), "max_size", null)
-          min_size_resource = lookup(lookup(topology.value, "autoscaling", {}), "min_size_resource", null)
-          max_size_resource = lookup(lookup(topology.value, "autoscaling", {}), "max_size_resource", null)
+
+        dynamic autoscaling {
+          for_each = lookup(topology.value, "autoscaling", null) != null ? [topology.value.autoscaling] : []
+          content {
+            min_size          = lookup(autoscaling.value, "min_size", null)
+            max_size          = lookup(autoscaling.value, "max_size", null)
+            min_size_resource = lookup(autoscaling.value, "min_size_resource", null)
+            max_size_resource = lookup(autoscaling.value, "max_size_resource", null)
+          }
         }
       }
     }
@@ -81,9 +88,15 @@ resource "ec_deployment" "deployment" {
           user_settings_override_json = var.apm_user_settings_override_json
         }
       }
+    }
+  }
 
-
-
+  dynamic observability {
+    for_each = var.observability_deployment_id != "" ? [0] : []
+    content {
+      deployment_id = var.observability_deployment_id
+      logs          = var.observability_enable_logs
+      metrics       = var.observability_enable_metrics
     }
   }
 }
