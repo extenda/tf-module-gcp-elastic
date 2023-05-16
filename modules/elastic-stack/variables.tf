@@ -32,7 +32,7 @@ variable "project_id" {
 
 variable "alias" {
   description = "Aliases for the index"
-  type        = map(string)
+  type        = list(map(string))
   default     = null
 }
 

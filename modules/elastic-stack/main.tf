@@ -17,7 +17,7 @@ resource "elasticstack_elasticsearch_index" "index_config" {
   mappings = var.mappings
 
   dynamic "alias" {
-    for_each = var.alias != null ? [var.alias] : []
+    for_each = var.alias != null ? var.alias : []
     content {
       name           = alias.value.name
       filter         = lookup(alias.value, "filter", "")

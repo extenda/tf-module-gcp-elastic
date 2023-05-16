@@ -17,7 +17,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| alias | Aliases for the index | `map(string)` | `null` | no |
+| alias | Aliases for the index | `list(map(string))` | `null` | no |
 | elastic\_secrets | List of secrets to extract from Secret Manager for Auth | `list(string)` | <pre>[<br>  "elasticsearch_username",<br>  "elasticsearch_password",<br>  "elasticsearch_https_endpoint"<br>]</pre> | no |
 | index\_name | Name of the index to be created | `string` | n/a | yes |
 | mappings | Mapping for fields in the index. If specified, this mapping can include: field names, field data types, mapping parameters | `string` | n/a | yes |
