@@ -6,8 +6,10 @@ module "elastic-stack" {
   number_of_shards   = 1
   number_of_replicas = 1
   mappings           = file("mappings.json")
-  alias = {
-    name           = "test-index-alias"
-    is_write_index = true
-  }
+  alias = [
+    {
+      name           = "test-module-index-alias"
+      is_write_index = true
+    }
+  ]
 }
