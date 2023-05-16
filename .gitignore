@@ -1,0 +1,19 @@
+### https://raw.github.com/github/gitignore/90f149de451a5433aebd94d02d11b0e28843a1af/Terraform.gitignore
+
+# Local .terraform directories
+**/.terraform/*
+.terraform.lock.hcl
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+terraform.tfstate.d/
+*.auto.tfvars
+credentials.json
+.vscode/
+.idea
+env/
