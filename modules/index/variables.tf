@@ -59,3 +59,9 @@ variable "search_idle_after" {
   type        = string
   default     = "30s"
 }
+
+variable "lifecycle_policy" {
+  description = "Name of the lifecycle policy to attach to the index"
+  type        = string
+  default     = null
+}
