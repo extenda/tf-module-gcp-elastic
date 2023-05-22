@@ -5,8 +5,8 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 4.62.0"
     }
-    ec = {
-      source  = "elastic/ec"
+    elasticstack = {
+      source  = "elastic/elasticstack"
       version = "0.5.0"
     }
   }

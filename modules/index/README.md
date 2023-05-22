@@ -20,6 +20,7 @@
 | alias | Aliases for the index | `list(map(string))` | `null` | no |
 | elastic\_secrets | List of secrets to extract from Secret Manager for Auth | `list(string)` | <pre>[<br>  "elasticsearch_username",<br>  "elasticsearch_password",<br>  "elasticsearch_https_endpoint"<br>]</pre> | no |
 | index\_name | Name of the index to be created | `string` | n/a | yes |
+| lifecycle\_policy | Name of the lifecycle policy to attach to the index | `string` | `null` | no |
 | mappings | Mapping for fields in the index. If specified, this mapping can include: field names, field data types, mapping parameters | `string` | n/a | yes |
 | number\_of\_replicas | Number of shard replicas | `number` | n/a | yes |
 | number\_of\_routing\_shards | Value used with number\_of\_shards to route documents to a primary shard | `number` | `1` | no |

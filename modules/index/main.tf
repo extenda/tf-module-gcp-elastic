@@ -36,4 +36,14 @@ resource "elasticstack_elasticsearch_index" "index_config" {
   routing_partition_size   = var.routing_partition_size
   refresh_interval         = var.refresh_interval
   search_idle_after        = var.search_idle_after
+
+  dynamic "settings" {
+    for_each = var.lifecycle_policy != null ? [var.lifecycle_policy] : []
+    content {
+      setting {
+        name  = "lifecycle.name"
+        value = var.lifecycle_policy
+      }
+    }
+  }
 }

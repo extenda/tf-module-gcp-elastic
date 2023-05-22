@@ -1,5 +1,5 @@
-module "elastic-stack" {
-  source = "../../modules/elastic-stack"
+module "index" {
+  source = "../../modules/index"
 
   index_name         = "test-index"
   elastic_secrets    = ["elastic", "password", "http://localhost:9200"]
