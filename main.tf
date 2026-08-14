@@ -78,10 +78,11 @@ resource "ec_deployment" "deployment" {
       }
 
       dynamic "config" {
-        for_each = (var.kibana_user_settings_json != "") || (var.kibana_user_settings_override_json != "") ? [0] : []
+        for_each = (var.kibana_user_settings_json != "") || (var.kibana_user_settings_override_json != "") || (var.kibana_user_settings_yaml != "") ? [0] : []
         content {
           user_settings_json          = var.kibana_user_settings_json
           user_settings_override_json = var.kibana_user_settings_override_json
+          user_settings_yaml          = var.kibana_user_settings_yaml
         }
       }
     }

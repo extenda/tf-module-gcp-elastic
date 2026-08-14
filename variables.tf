@@ -130,6 +130,12 @@ variable "kibana_user_settings_override_json" {
   default     = ""
 }
 
+variable "kibana_user_settings_yaml" {
+  description = "YAML-formatted user level kibana.yml setting overrides"
+  type        = string
+  default     = ""
+}
+
 # APM config
 variable "enable_apm" {
   description = "Whether to deploy APM to the cluster or not"
