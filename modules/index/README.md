@@ -3,14 +3,14 @@
 | Name | Version |
 |------|---------|
 | terraform | >= 1.0.0 |
-| elasticstack | 0.5.0 |
+| elasticstack | 0.12.2 |
 | google | ~> 4.62.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| elasticstack | 0.5.0 |
+| elasticstack | 0.12.2 |
 | google | ~> 4.62.0 |
 
 ## Inputs
