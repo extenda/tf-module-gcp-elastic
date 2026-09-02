@@ -20,7 +20,7 @@ resource "elasticstack_elasticsearch_index" "index_config" {
     for_each = var.alias != null ? var.alias : []
     content {
       name           = alias.value.name
-      filter         = lookup(alias.value, "filter", "")
+      filter         = lookup(alias.value, "filter", null)
       index_routing  = lookup(alias.value, "index_routing", "")
       is_hidden      = lookup(alias.value, "is_hidden", false)
       is_write_index = lookup(alias.value, "is_write_index", false)

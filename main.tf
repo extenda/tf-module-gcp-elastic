@@ -127,7 +127,7 @@ resource "google_secret_manager_secret" "elastic_secret_id" {
   }
 
   replication {
-    auto {}
+    automatic = true
   }
 
   depends_on = [ec_deployment.deployment]
