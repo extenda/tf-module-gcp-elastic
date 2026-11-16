@@ -27,9 +27,14 @@ variable "metadata" {
 }
 
 variable "elastic_secrets" {
-  description = "List of secrets to extract from Secret Manager for Auth"
+  description = "Names of the three secrets to extract from Secret Manager for Auth, in this order: username, password and endpoint. When project_id is empty, the values themselves are used as username, password and endpoint"
   type        = list(string)
   default     = ["elasticsearch_username", "elasticsearch_password", "elasticsearch_https_endpoint"]
+
+  validation {
+    condition     = length(var.elastic_secrets) == 3
+    error_message = "elastic_secrets must contain exactly three entries, in this order: username, password and endpoint."
+  }
 }
 
 variable "project_id" {
