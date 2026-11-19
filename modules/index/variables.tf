@@ -65,3 +65,9 @@ variable "lifecycle_policy" {
   type        = string
   default     = null
 }
+
+variable "default_pipeline" {
+  description = "Name of the ingest pipeline to run on every index request that does not name its own pipeline. The pipeline must exist before the index is created or updated, otherwise indexing fails"
+  type        = string
+  default     = null
+}
