@@ -66,6 +66,12 @@ variable "lifecycle_policy" {
   default     = null
 }
 
+variable "deletion_protection" {
+  description = "Whether Terraform refuses to destroy the index. Set to false and apply before removing an index through Terraform"
+  type        = bool
+  default     = true
+}
+
 variable "default_pipeline" {
   description = "Name of the ingest pipeline to run on every index request that does not name its own pipeline. The pipeline must exist before the index is created or updated, otherwise indexing fails"
   type        = string

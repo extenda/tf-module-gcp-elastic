@@ -19,6 +19,7 @@
 |------|-------------|------|---------|:--------:|
 | alias | Aliases for the index | `list(map(string))` | `null` | no |
 | default\_pipeline | Name of the ingest pipeline to run on every index request that does not name its own pipeline. The pipeline must exist before the index is created or updated, otherwise indexing fails | `string` | `null` | no |
+| deletion\_protection | Whether Terraform refuses to destroy the index. Set to false and apply before removing an index through Terraform | `bool` | `true` | no |
 | elastic\_secrets | List of secrets to extract from Secret Manager for Auth | `list(string)` | <pre>[<br>  "elasticsearch_username",<br>  "elasticsearch_password",<br>  "elasticsearch_https_endpoint"<br>]</pre> | no |
 | index\_name | Name of the index to be created | `string` | n/a | yes |
 | lifecycle\_policy | Name of the lifecycle policy to attach to the index | `string` | `null` | no |

@@ -37,6 +37,7 @@ resource "elasticstack_elasticsearch_index" "index_config" {
   refresh_interval         = var.refresh_interval
   search_idle_after        = var.search_idle_after
   default_pipeline         = var.default_pipeline
+  deletion_protection      = var.deletion_protection
 
   dynamic "settings" {
     for_each = var.lifecycle_policy != null ? [var.lifecycle_policy] : []
